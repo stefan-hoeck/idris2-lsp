@@ -229,7 +229,7 @@ loadURI conf uri version = do
   --     A hack to solve some interesting edge-cases around missing newlines ^^^^^^^
   setSource res
   errs <- catch
-            (buildDeps fname)
+            (buildDeps False fname)
             (\err => do
               logE Server "Caught error which shouldn't be leaked while loading file: \{show err}"
               pure [err])
